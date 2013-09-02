@@ -11,12 +11,12 @@ var tictactoe = function() {
 
   var _this = this;
   this.initialize = function() {
-    _this.playerOneTurn = true,
-    _this._x = 'x',
-    _this._o = 'o',
-    _this.gridSize = 3,
-    _this.tdElements = Array(Array(3), Array(3), Array(3)),
-    _this.winnerCells = Array(),
+    _this.playerOneTurn = true;
+    _this._x = 'x';
+    _this._o = 'o'
+    _this.gridSize = 3;
+    _this.tdElements = Array(Array(3), Array(3), Array(3));
+    _this.winnerCells = Array();
     _this.winner = false;
     var cells, i;
     cells = document.getElementsByTagName('td');
