@@ -45,7 +45,6 @@ var tictactoe = function() {
   };
 
   this.checkForWinner = function(x, y) {
-    var _this = this;
     _this.winnerCells = Array(_this.tdElements[x][y]);
     _this.winner = false;
     _this.checkNeighbors(x+1, y, x+2, y)      // right
