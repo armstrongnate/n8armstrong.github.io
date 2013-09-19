@@ -13,6 +13,23 @@ $text-brown: #626363
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   font-family: MuseoSlab
+  font-size: 14px
+  line-height: 1.428571429
+  font-weight: 500
+
+h1
+  margin: 0.67em 0
+  font-weight: 500
+
+h1, h2, h3
+  margin-top: 20px
+  margin-bottom: 10px
+  line-height: 1.1
+
+h4, h5, h6
+  margin-top: 10px
+  margin-bottom: 10px
+  line-height: 1.1
 
 h2, h3
   background: url("../images/bg1.jpg") repeat
@@ -28,6 +45,20 @@ h4
 h5
   font-size: 13px
 
+p
+  margin: 0 0 10px
+
+img
+  border: 0
+  vertical-align: middle
+
+*,
+*:before,
+*:after
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
 body
   background: #000 url('../images/bg1.jpg') repeat
   color: $text-brown
@@ -35,6 +66,13 @@ body
 @media (min-width: 1200px)
   .container
     max-width: 960px
+    padding-right: 15px
+    padding-left: 15px
+    margin-right: auto
+    margin-left: auto
+    &:before, &:after
+      display: table
+      content: " "
 
 header, footer
   margin-top: 20px
@@ -57,6 +95,7 @@ header, footer
     line-height: 75px
     margin-top: 20px
     ul
+      margin-top: 0
       position: absolute
       right: 0
       li
@@ -257,7 +296,7 @@ section
       display: inline-block
       text-align: center
     .row
-      height: 101px
+      height: 98px
       overflow: hidden
       .left
         padding-top: 32px
@@ -433,6 +472,7 @@ section
           margin-left: 6px
 
 footer
+  margin-bottom: 70px
   .logo-transparent
     background: url('../images/logo_transparent.png') no-repeat
     background-size: 50px 50px
@@ -451,6 +491,7 @@ footer
     line-height: 22px
     font-size: 12px
   ul
+    margin-top: -5px
     width: 50%
     float: left
     li
@@ -518,5 +559,63 @@ footer
       -webkit-transition-delay: 100ms
       -moz-transition-delay: 100ms
 
+.row
+  margin-right: -15px
+  margin-left: -15px
+  &:after
+    clear: both
+  &:before, &:after
+    display: table
+    content: " "
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11
+  float: left
+  position: relative
+  min-height: 1px
+  padding-right: 15px
+  padding-left: 15px
+.col-md-1
+  width: 8.333333333333332%
+.col-md-2
+  width: 16.666666666666664%
+.col-md-3
+  width: 25%
+.col-md-4
+  width: 33.33333333333333%
+.col-md-5
+  width: 41.66666666666667%
+.col-md-6
+  width: 50%
+.col-md-7
+  width: 58.333333333333336%
+.col-md-8
+  width: 66.66666666666666%
+.col-md-9
+  width: 75%
+.col-md-10
+  width: 83.33333333333334%
+.col-md-11
+  width: 91.66666666666666%
+.col-md-12
+  width: 100%
+.pull-right
+  float: right !important
+.pull-left
+  float: left !important
 
+.clearfix
 
+  &:before, &:after
+    display: table
+    content: " "
+  &:after
+    clear: both
