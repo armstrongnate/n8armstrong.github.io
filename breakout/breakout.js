@@ -73,9 +73,10 @@ $(function() {
     if ($('.brick').length < 1) {
       alert('You won!');
       document.location.reload();
+    } else {
+      setTimeout(moveBall, 20);
     }
 
-    setTimeout(moveBall, 20);
   }
 
   $('#ball').css('left', 385);
