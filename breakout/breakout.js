@@ -43,9 +43,9 @@ $(function() {
     if (x > $('#main').width() - ballSize || x <= 0) { vx = -vx; }
     if (y <= 0) { vy = -vy; }
     if (y > $('#main').height() - ballSize) {
-      y = null;
       alert('You lost!');
       document.location.reload();
+      return;
     }
     $('#ball').css('left', x);
     $('#ball').css('top', y);
