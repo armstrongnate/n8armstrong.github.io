@@ -74,6 +74,7 @@ $(function() {
     if ($('.brick').length < 1) {
       alert('You won!');
       document.location.reload();
+      return;
     } else {
       setTimeout(moveBall, 20);
     }
