@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" ng-app="galleryApp">
+<head>
+  <meta charset="utf-8">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body ng-controller="ImageListCtrl">
+
+  <ul>
+    <li ng-repeat="image in categories[0]">
+      {{image.url}}
+      <p>{{image.thumb}}</p>
+    </li>
+  </ul>
+
+</body>
+</html>
