@@ -1,9 +1,11 @@
-#sidebar .tag {
-  display: inline-block;
-  float: left;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  font-size: 14px; }
+#sidebar {
+  padding-top: 15px; }
+  #sidebar .tag {
+    display: inline-block;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 14px; }
 
 #main #slider {
   text-align: center;

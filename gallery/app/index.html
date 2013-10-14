@@ -14,7 +14,7 @@
       <!-- Sidebar -->
       <div class='col-md-3' id='sidebar'>
         <div>
-          <input type='text' ng-model='search.tags'>
+          Search: <input type='text' ng-model='search.tags'>
         </div>
         <div ng-repeat='(key, value) in tags' class='tag'>
           <span ng-click="setTag(key)" class='label' ng-class="{true: 'label-primary', false: 'label-default'}[search.tags == key]">{{key}} {{value}}</span>
