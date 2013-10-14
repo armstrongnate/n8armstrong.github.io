@@ -1,0 +1,15 @@
+#sidebar .tag {
+  display: inline-block;
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 14px; }
+
+#main #slider {
+  text-align: center;
+  overflow: hidden; }
+  #main #slider .slide {
+    width: 878px;
+    float: left; }
+#main #thumbnails .thumb {
+  margin-top: 15px; }
