@@ -1,17 +1,65 @@
-#sidebar {
-  padding-top: 15px; }
-  #sidebar .tag {
-    display: inline-block;
-    float: left;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    font-size: 14px; }
+/*
+Syntax error: Invalid CSS after "a ": expected selector, was "{"
+        on line 11 of src/app.sass
 
-#main #slider {
-  text-align: center;
-  overflow: hidden; }
-  #main #slider .slide {
-    width: 728px;
-    float: left; }
-#main #thumbnails .thumb {
-  margin-top: 15px; }
+6:     margin-right: 5px
+7:     margin-bottom: 5px
+8:     font-size: 14px
+9: 
+10: #main
+11:   a {
+12:     cursor: pointer
+13:   }
+14:   #slider
+15:     text-align: center
+16:     overflow: hidden
+
+Backtrace:
+src/app.sass:11
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/scss/parser.rb:1148:in `expected'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/scss/parser.rb:1084:in `expected'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/scss/static_parser.rb:21:in `parse_selector'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:314:in `visit_rule'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/tree/root_node.rb:20:in `render'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/engine.rb:315:in `_render'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/engine.rb:262:in `render'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:283:in `block in watch'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/multi_listener.rb:108:in `call'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/multi_listener.rb:108:in `on_change'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/adapter.rb:198:in `call'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/adapter.rb:198:in `report_changes'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/adapter.rb:210:in `poll_changed_dirs'
+/Users/nate/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/adapters/darwin.rb:38:in `block in start'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"a \": expected selector, was \"{\"\A         on line 11 of src/app.sass\A \A 6:     margin-right: 5px\A 7:     margin-bottom: 5px\A 8:     font-size: 14px\A 9: \A 10: #main\A 11:   a {\A 12:     cursor: pointer\A 13:   }\A 14:   #slider\A 15:     text-align: center\A 16:     overflow: hidden"; }

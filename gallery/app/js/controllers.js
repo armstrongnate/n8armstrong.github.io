@@ -28,40 +28,52 @@ galleryApp.controller('ImageListCtrl', ['$scope', '$http', '$timeout', '$filter'
 
     $scope.search = {};
 
-  $scope.onSlide = 0;
-
-  var slide = function() {
-    $scope.slideTimeout = $timeout(function() {
-      if ($scope.onSlide >= $filter('filter')($scope.photos, $scope.search).length - 1) {
-        $scope.onSlide = 0;
-      } else {
-        $scope.onSlide += 1;
-      }
-      slide();
-    }, 4000);
-  }
-
-  slide();
-
-  $scope.$watch('search.tags', function(oldValue, newValue) {
     $scope.onSlide = 0;
-  })
 
-  $scope.setTag = function(tag) {
-    if ($scope.search.tags === tag) {
-      $scope.search = {};
-    } else {
-      $scope.search.tags = tag;
+    var slide = function() {
+      $scope.slideTimeout = $timeout(function() {
+        if ($scope.onSlide >= $filter('filter')($scope.photos, $scope.search).length - 1) {
+          $scope.onSlide = 0;
+        } else {
+          $scope.onSlide += 1;
+        }
+        slide();
+      }, 4000);
     }
-    $timeout.cancel($scope.slideTimeout);
-    slide();
-  }
 
-  $scope.thumbClick = function(index) {
-    $scope.onSlide = index;
-    $timeout.cancel($scope.slideTimeout);
     slide();
-  }
+
+    $scope.$watch('search.tags', function(oldValue, newValue) {
+      $scope.onSlide = 0;
+    })
+
+    $scope.setTag = function(tag) {
+      if ($scope.search.tags === tag) {
+        $scope.search = {};
+      } else {
+        $scope.search.tags = tag;
+      }
+      $timeout.cancel($scope.slideTimeout);
+      slide();
+    }
+
+    $scope.thumbClick = function(index) {
+      $scope.onSlide = index;
+      $timeout.cancel($scope.slideTimeout);
+      slide();
+    }
+
+    $scope.pause = function() {
+      $timeout.cancel($scope.slideTimeout);
+    }
+
+    $scope.play = function() {
+      slide();
+    }
+
+    $scope.reset = function() {
+      $scope.onSlide = 0;
+    }
 
     $scope.urlStringForPhoto = function(photo, size) { // size options 'square', 'original', 'thumb', 'medium'
       var farm, server, secret, fileType, photo_id, format;

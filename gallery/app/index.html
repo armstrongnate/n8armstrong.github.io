@@ -33,6 +33,9 @@
             </div>
           </div>
         </div>
+        <div>
+          <a ng-click="play()">Play</a> <a ng-click="pause()">Pause</a> <a ng-click="reset()">Reset</a>
+        </div>
         <div id='thumbnails'>
           <div class='col-md-12'>
             <div ng-repeat="photo in photos | filter:search" class='col-md-1 thumb'>
