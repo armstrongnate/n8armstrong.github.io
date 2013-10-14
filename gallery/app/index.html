@@ -24,7 +24,7 @@
       <!-- Main -->
       <div class='col-md-9' id='main'>
         <div class='row' id='slider'>
-          <div id='slides' ng-style="{'width': (photos | filter:search).length * 878 + 'px', 'margin-left': onSlide * -100 + '%'}">
+          <div id='slides' ng-style="{'width': (photos | filter:search).length * 728 + 'px', 'margin-left': onSlide * -100 + '%'}">
             <div class='slide' ng-repeat='photo in photos | filter:search'>
               <h1>{{photo.title}}</h1>
               <a ng-href="{{photo.url_o}}">
