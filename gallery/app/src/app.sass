@@ -1,4 +1,13 @@
-#sidebar
+.container
+  min-width: 1024px
+
+.text-right
+  text-align: right
+
+.push-down
+  margin-top: 10px
+
+.sidebar
   padding-top: 15px
   .tag
     display: inline-block
@@ -8,16 +17,24 @@
     font-size: 14px
 
 #main
+  padding-top: 15px
   a
     cursor: pointer
   #slider
     text-align: center
-    overflow: hidden
-    #slides
-      // transition: all 1s
+    height: 500px
+    margin-bottom: 10px
     .slide
-      width: 728px
-      float: left
-  #thumbnails
-    .thumb
-      margin-top: 15px
+      display: block
+      height: 100%
+      line-height: 500px
+  #details
+    margin-top: 10px
+
+#thumbnails
+  .thumb
+    margin-top: 15px
+    img
+      opacity: .6
+      &.active
+        opacity: 1

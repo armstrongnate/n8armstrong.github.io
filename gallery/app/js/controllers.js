@@ -30,7 +30,10 @@ galleryApp.controller('ImageListCtrl', ['$scope', '$http', '$timeout', '$filter'
 
     $scope.onSlide = 0;
 
+    $scope.delay = 4;
+
     var slide = function() {
+      $scope.state = 'playing';
       $scope.slideTimeout = $timeout(function() {
         if ($scope.onSlide >= $filter('filter')($scope.photos, $scope.search).length - 1) {
           $scope.onSlide = 0;
@@ -38,13 +41,18 @@ galleryApp.controller('ImageListCtrl', ['$scope', '$http', '$timeout', '$filter'
           $scope.onSlide += 1;
         }
         slide();
-      }, 4000);
+      }, $scope.delay * 1000);
     }
 
     slide();
 
     $scope.$watch('search.tags', function(oldValue, newValue) {
       $scope.onSlide = 0;
+    })
+
+    $scope.$watch('delay', function() {
+      $timeout.cancel($scope.slideTimeout);
+      if ($scope.state == 'playing') slide();
     })
 
     $scope.setTag = function(tag) {
@@ -54,17 +62,18 @@ galleryApp.controller('ImageListCtrl', ['$scope', '$http', '$timeout', '$filter'
         $scope.search.tags = tag;
       }
       $timeout.cancel($scope.slideTimeout);
-      slide();
+      if ($scope.state == 'playing') slide();
     }
 
     $scope.thumbClick = function(index) {
       $scope.onSlide = index;
       $timeout.cancel($scope.slideTimeout);
-      slide();
+      if ($scope.state == 'playing') slide();
     }
 
     $scope.pause = function() {
       $timeout.cancel($scope.slideTimeout);
+      $scope.state = 'paused';
     }
 
     $scope.play = function() {
@@ -75,31 +84,24 @@ galleryApp.controller('ImageListCtrl', ['$scope', '$http', '$timeout', '$filter'
       $scope.onSlide = 0;
     }
 
-    $scope.urlStringForPhoto = function(photo, size) { // size options 'square', 'original', 'thumb', 'medium'
-      var farm, server, secret, fileType, photo_id, format;
-      farm = photo.farm;
-      photo_id = photo.id;
-      server = photo.server;
-      secret = size === 'original' ? photo.originalsecret : photo.secret;
-      fileType = size === 'original' ? photo.originalformat : 'jpg';
-
-      if (!farm || !photo_id || !secret) return null;
-
-      switch (size) {
-        case 'square':
-          format = 's';
-          break;
-        case 'original':
-          format = 'o';
-          break;
-        case 'thumb':
-          format = 't';
-          break;
-        case 'medium':
-          format = 'z';
-          break;
+    $scope.next = function() {
+      $timeout.cancel($scope.slideTimeout);
+      if ($scope.onSlide >= $filter('filter')($scope.photos, $scope.search).length - 1) {
+        $scope.onSlide = 0;
+      } else {
+        $scope.onSlide += 1;
       }
-      return 'http://farm' + farm + '.static.flickr.com/' + server + '/' + photo_id + '_' + secret + '_' + format + '.' + fileType;
+      if ($scope.state == 'playing') slide();
+    }
+
+    $scope.prev = function() {
+      $timeout.cancel($scope.slideTimeout);
+      if ($scope.onSlide <= 0) {
+        $scope.onSlide =  $filter('filter')($scope.photos, $scope.search).length - 1;
+      } else {
+        $scope.onSlide -= 1;
+      }
+      if ($scope.state == 'playing') slide();
     }
   });
 }]);
