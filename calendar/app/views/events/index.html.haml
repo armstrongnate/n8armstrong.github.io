@@ -1,1 +1,21 @@
-%h1 Hello World
+.row
+  .col-md-12
+    .panel.panel-default{ ng: { class: 'display' } }
+      .panel-heading
+        .btn-toolbar.pull-right
+          .btn-group
+            %button.btn.btn-link{ ng: { click: 'setMonth(selectedDate.getMonth() - 1)' } }
+              Back
+            %button.btn.btn-link{ ng: { click: 'setMonth(selectedDate.getMonth() + 1)' } }
+              Next
+        {{months[selectedDate.getMonth()]}} {{selectedDate.getFullYear()}}
+      .panel-body
+        .row
+          .col-md-2.day-col{ ng: { repeat: "day in days" } }
+            .day.header{ ng: { class: "{'left-edge': $index % 7 == 0}"}}
+              {{day}}
+        .row
+          .col-md-2.day-col{ ng: { repeat: "n in [] | range:selectedDate.daysCount() + selectedDate.monthStartsOn()" } }
+            .day{ ng: { class: "{'right-edge': ($index + 1) % 7 == 0, 'bottom-row': $index - 7 > 20}" }, data: { toggle: 'tooltip', placement: 'bottom' } }
+              {{($index - selectedDate.monthStartsOn()) + 1 | toDate:selectedDate}}
+              %div{ ng: { repeat: 'event in events | onDay:(($index - selectedDate.monthStartsOn()) + 1):selectedDate'}} {{event.title}}

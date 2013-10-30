@@ -1,0 +1,27 @@
+.panel.month {
+  .panel-body {
+    padding-bottom: 0px;
+  }
+}
+.day-col {
+  width: 14.28% !important;
+  padding: 0;
+  .day {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-top: none;
+    border-left: none;
+    height: 111px;
+    padding-left: 5px;
+    &.right-edge {
+      border-right: none;
+    }
+    &.bottom-row {
+      border-bottom: none;
+    }
+    &.header {
+      height: 30px;
+      border-right: none;
+    }
+  }
+}

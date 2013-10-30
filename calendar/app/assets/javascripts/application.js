@@ -14,8 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require angular
+//= require bootstrap
 //= require_tree .
 
 $(function(){
   $(document).trigger('page:load');
 });
+
+Date.prototype.daysCount = function() {
+  return new Date(this.getFullYear(), this.getMonth()+1, 0).getDate();
+}
+
+Date.prototype.monthStartsOn = function() {
+  return new Date(this.getFullYear(), this.getMonth(), 1).getDay();
+}
