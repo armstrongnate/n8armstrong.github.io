@@ -1,21 +1,50 @@
+%quick_view#quick-view{ location: 'month.quickView.location', ng: { show: 'month.quickView.visible' } }
+  .content
+    .row
+      .col-md-12
+        %div{ ng: { show: 'month.quickView.editMode' } }
+          .form-group
+            %label.control-label When:
+            {{event.starts_at.toDate() | date:'mediumDate'}}
+            %span{ ng: { show: 'event.is_multi_day' } } to {{event.ends_at.toDate() | date:'mediumDate'}}
+          .form-group
+            %label.control-label Time:
+            %input{ type: 'text', placeholder: 'eg: 8:30am', ng: { model: 'event.starts_at_date', value: "event.starts_at.toDate() | date:'shortTime'" } }
+            to
+            %input{ type: 'text', placeholder: 'eg: 2:30pm', ng: { model: 'event.ends_at_time' }, value: "{{event.ends_at.toDate() | date:'shortTime'}}" }
+          .form-group
+            %label.control-label Title:
+            %input.title{ type: 'text', ng: { model: 'event.title' } }
+          .form-group
+            %button.btn.btn-default{ ng: { click: 'saveEvent(event)' } } Save Event
+            %button.btn.btn-link More options
+        %div{ ng: { hide: 'month.quickView.editMode' } }
+          %h4 {{event.title}}
+          %p
+            {{event.starts_at.toDate() | date:'fullDate'}}
+            %span{ ng: { show: 'event.is_multi_day' } } to {{event.ends_at.toDate() | date:'fullDate'}}
+          %button.btn.btn-link{ ng: { click: 'month.quickView.editMode = true' } } Edit
+  .close{ ng: { click: 'month.quickView.visible = false'}} &times;
+  .triangle.bottom
+  .triangle
 .row
   .col-md-12
     .panel.panel-default{ ng: { class: 'display' } }
       .panel-heading
         .btn-toolbar.pull-right
           .btn-group
-            %button.btn.btn-link{ ng: { click: 'setMonth(selectedDate.getMonth() - 1)' } }
-              Back
-            %button.btn.btn-link{ ng: { click: 'setMonth(selectedDate.getMonth() + 1)' } }
-              Next
+            %button.btn.btn-link{ ng: { click: 'setMonth(selectedDate.getMonth() - 1)' } } Back
+            %button.btn.btn-link{ ng: { click: 'setMonth(selectedDate.getMonth() + 1)' } } Next
         {{months[selectedDate.getMonth()]}} {{selectedDate.getFullYear()}}
       .panel-body
         .row
           .col-md-2.day-col{ ng: { repeat: "day in days" } }
-            .day.header{ ng: { class: "{'left-edge': $index % 7 == 0}"}}
-              {{day}}
-        .row
-          .col-md-2.day-col{ ng: { repeat: "n in [] | range:selectedDate.daysCount() + selectedDate.monthStartsOn()" } }
-            .day{ ng: { class: "{'right-edge': ($index + 1) % 7 == 0, 'bottom-row': $index - 7 > 20}" }, data: { toggle: 'tooltip', placement: 'bottom' } }
-              {{($index - selectedDate.monthStartsOn()) + 1 | toDate:selectedDate}}
-              %div{ ng: { repeat: 'event in events | onDay:(($index - selectedDate.monthStartsOn()) + 1):selectedDate'}} {{event.title}}
+            .day.header{ ng: { class: "{'left-edge': $index % 7 == 0}"}} {{day}}
+        %div{ ng: { repeat: "week in weeks" } }
+          .row
+            .col-md-2.day-col{ ng: { repeat: "n in week" } }
+              .day{ ng: { class: "{'right-edge': (n + 1) % 7 == 0, 'bottom-row': n - 7 > 20}", click: 'month.clickDay(n, $event)' } }
+                {{nToDate(n)}}
+                %div{ ng: { repeat: 'event in eventsForDay(n)' } }
+                  %a{ ng: { click: 'month.clickEvent(event, $event)' } } {{event.title}}
+                %div.active-indicator

@@ -60,24 +60,73 @@ calendar.filter('range', function() {
 });
 
 calendar.controller('EventsCtrl', ['$scope', '$http', '$filter', '$timeout', function EventsCtrl($scope, $http, $filter, $timeout) {
-  $scope.days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
-  $scope.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  $scope.monthsAbbr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  $scope.display = 'month';
-  $scope.list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32];
-  $scope.events = [];
 
+  function showQuickViewWithEvent(event, $event) {
+    var quickView = $scope.month.quickView;
+    $scope.event = event;
+    quickView.visible = true;
+    quickView.location = {x: $event.pageX, y: $event.pageY};
+    $event.stopPropagation();
+  }
+
+  function clickedDate(date) {
+    return new Date($scope.month.year, $scope.month.monthNum, (date - $scope.selectedDate.monthStartsOn()) + 1);
+  }
+
+  $scope.events = [];
+  $scope.selectedDate = new Date();
   $http.get('/events.json').success(function(r) {
     $scope.events = r;
-    $scope.selectedDate = new Date();
-    console.log(r);
   });
 
-  d = new Date();
-  $scope.now = {
-    day: d.getDay(),
-    month: d.getMonth(),
-    year: d.getFullYear()
+  $scope.weeks = makeWeeks();
+  $scope.days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
+  $scope.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  $scope.display = 'month';
+  $scope.selectedDay = {};
+  $scope.event = null;
+  $scope.month = {
+    monthNum: new Date().getMonth(),
+    year: new Date().getFullYear(),
+    selectedDay: null,
+    quickView: {
+      visible: false,
+      location: {
+        x: 0,
+        y: 0
+      },
+      size: {
+        width: 400,
+        height: 170
+      },
+      editMode: true
+    },
+    clickDay: function(n, $event) {
+      var event = {
+        starts_at: $filter('date')(clickedDate(n), 'yyyy-MM-dd HH:mm:ss')
+      }
+      this.quickView.visible = true;
+      showQuickViewWithEvent(event, $event);
+      this.quickView.editMode = true;
+      this.selectedDay = clickedDate(n);
+    },
+    clickEvent: function(event, $event) {
+      $scope.month.quickView.editMode = false;
+      showQuickViewWithEvent(event, $event);
+    }
+  }
+
+  $scope.eventsForDay = function(day) {
+    return $filter('onDay')($scope.events, ((day - $scope.selectedDate.monthStartsOn()) + 1), $scope.selectedDate);
+  }
+
+  $scope.nToDate = function(n) {
+    return $filter('toDate')((n - $scope.selectedDate.monthStartsOn()) + 1, $scope.selectedDate);
+  }
+
+  function makeWeeks() {
+    var weeks = $filter('range')([], $scope.selectedDate.daysCount() + $scope.selectedDate.monthStartsOn());
+    return weeks = $filter('inGroupsOf')(weeks, 7);
   }
 
   $scope.daysInMonth = function(year, month) {
@@ -98,16 +147,31 @@ calendar.controller('EventsCtrl', ['$scope', '$http', '$filter', '$timeout', fun
       $scope.selectedDate.setFullYear($scope.selectedDate.getFullYear() - 1)
     }
     $scope.selectedDate.setMonth(newMonth);
+    makeWeeks();
   }
 
-}]);
+  $scope.saveEvent = function(event) {
+    console.log(event);
+    return;
+    params = {event: event, _method: 'PUT'};
+    $http.post('/events.json', params).success(function(data) {
+      console.log(data);
+    });
+  }
 
-calendar.directive('day', function() {
+}])
+.directive('quickView', function($timeout) {
   return {
-    restrict: 'A',
-    link: function(element) {
-      console.log('in here');
-      angular.element(element).tooltip({container: 'body'});
+    restrict: 'E',
+    link: function(scope, element, attrs) {
+      scope.$watch(attrs.location, function (newValue) {
+        if (newValue) {
+          $timeout(function() {
+            element.css('top', (newValue.y - element.outerHeight()) - 25);
+            element.css('left', newValue.x - (element.outerWidth() / 2));
+          })
+        }
+      }, true);
     }
   }
-})
+});

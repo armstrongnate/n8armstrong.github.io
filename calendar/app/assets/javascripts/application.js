@@ -28,3 +28,7 @@ Date.prototype.daysCount = function() {
 Date.prototype.monthStartsOn = function() {
   return new Date(this.getFullYear(), this.getMonth(), 1).getDay();
 }
+
+String.prototype.toDate = function() {
+  return new Date(this);
+}
