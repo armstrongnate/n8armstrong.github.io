@@ -1,4 +1,4 @@
-collection @events
+object @event
 attributes :id, :starts_at, :ends_at, :title, :notes, :location, :color
 
 node :starts_at do |e|

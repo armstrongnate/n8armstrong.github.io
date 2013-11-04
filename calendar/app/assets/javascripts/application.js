@@ -32,3 +32,7 @@ Date.prototype.monthStartsOn = function() {
 String.prototype.toDate = function() {
   return new Date(this);
 }
+
+Date.prototype.toDate = function() {
+  return this;
+}

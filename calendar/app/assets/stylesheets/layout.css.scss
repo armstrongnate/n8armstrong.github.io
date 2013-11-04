@@ -1,19 +1,26 @@
+a {
+  cursor: pointer;
+}
 #quick-view {
   position: absolute;
   background: #fff;
   padding: 10px;
   top: 10px;
   left: 10px;
-  width: 400px;
+  width: 330px;
   z-index: 10;
   max-height: 230px;
+  font-size: 12px;
   h4 {
-    font-size: 17px;
+    font-size: 15px;
   }
   input {
     &.title {
-      width: 333px;
+      width: 279px;
     }
+  }
+  .btn {
+    font-size: 12px;
   }
   .content {
     overflow-y: auto;
@@ -33,7 +40,7 @@
     border-color: #fff transparent transparent transparent;
     position: absolute;
     bottom: -11px;
-    left: 191px;
+    left: 162px;
     z-index: 999;
     &.bottom {
       bottom: -13px;
@@ -41,22 +48,52 @@
     }
   }
 }
-.panel.month {
-  .panel-body {
+.panel {
+  .panel-heading {
+    overflow: hidden;
+    h5 {
+      margin-left: 10px;
+    }
+  }
+  .panel-body.month {
     position: relative;
     padding-bottom: 0px;
+    .col-md-12 {
+      width: 100%;
+    }
   }
 }
 .day-col {
   width: 14.28% !important;
   padding: 0;
+  float: left;
   .day {
     background-color: #ffffff;
     border: 1px solid #dddddd;
     border-top: none;
     border-left: none;
     height: 111px;
-    padding-left: 5px;
+    a {
+      display: block;
+      padding-left: 5px;
+      font-size: 11px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      margin-right: 5px;
+      &.multi-day {
+        margin-right: 0px;
+      }
+    }
+    .date-number {
+      padding-left: 5px;
+    }
+    &.today {
+      background-color: #eee;
+    }
+    &.other-month {
+      color: #999;
+    }
     &.right-edge {
       border-right: none;
     }

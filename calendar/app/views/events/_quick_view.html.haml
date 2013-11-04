@@ -1,0 +1,25 @@
+%quick_view#quick-view{ location: 'month.quickView.location', move_up: 'month.quickView.moveUp', editMode: 'moth.quickView.editMode', ng: { show: 'month.quickView.visible' } }
+  .content
+    .row
+      .col-md-12
+        %div{ ng: { show: 'month.quickView.editMode' } }
+          .form-group
+            %label.control-label When:
+            {{event.starts_at.toDate() | date:'mediumDate'}}
+            %span{ ng: { show: 'event.is_multi_day' } } to {{event.ends_at.toDate() | date:'mediumDate'}}
+          .form-group
+            %label.control-label Title:
+            %input.title{ type: 'text', ng: { model: 'event.title' } }
+          %div
+            %button.btn.btn-default{ ng: { click: 'saveEvent(event)' } } Save Event
+            %button.btn.btn-link{ ng: { click: "clickEditEvent(event)" } } More options
+        %div{ ng: { hide: 'month.quickView.editMode' } }
+          %h4 {{event.title}}
+          %p
+            {{event.starts_at.toDate() | date:'fullDate'}}
+            %span{ ng: { show: 'event.is_multi_day' } } to {{event.ends_at.toDate() | date:'fullDate'}}
+          %a{ ng: { click: 'month.quickView.setEditMode(true)' } } Edit
+          %a.text-danger.pull-right{ ng: { click: 'deleteEvent(event)' } } Delete
+  .close{ ng: { click: 'month.quickView.visible = false'}} &times;
+  .triangle.bottom
+  .triangle
