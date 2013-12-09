@@ -2,10 +2,16 @@
   <div class='col-md-6'>
     <div class='panel panel-default'>
       <div class='panel-body'>
-        <p>Decks</p>
+        <p>
+          Decks
+          <a href='#/decks' class='pull-right'>
+            <span class='glyphicon glyphicon-circle_plus text-success'></span>
+          </a>
+        </p>
       </div>
       <ul class='list-group'>
-        <a ng-repeat='d in decks' ng-click="deckCtrl.selectDeck(d)">
+        <li us-spinner class='spinner list-group-item' ng-show='decksSpinner.spinning'></li>
+        <a ng-repeat='d in decks' ng-href="#/decks/{{d.id}}/edit" ng-hide='decksSpinner.spinning'>
           <li class='list-group-item'>
             <span>{{d.name}}</span>
             <span class='badge'>{{d.cards.length}}</span>
