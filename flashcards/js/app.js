@@ -25,7 +25,7 @@ flashcards.config(['$httpProvider','$locationProvider', function ($httpProvider,
 });
 
 flashcards.factory('Deck', ['$resource', function($resource) {
-  return $resource('http://flashcardsapi.192.168.0.2.xip.io/decks/:deckId', {deckId: '@id'}, {
+  return $resource('http://flashcardsapi.144.38.176.181.xip.io/decks/:deckId', {deckId: '@id'}, {
     put: {method: 'PUT', params: { '_method': 'PUT'}}
   });
 }])

@@ -1,117 +1,154 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <script type="text/javascript">
-      var CLIENT_ID = '1052421885886-4q4mgn6c02ie735d09t77p970iqjv1s6.apps.googleusercontent.com';
-      var SCOPES = 'https://www.googleapis.com/auth/drive';
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JS-XLSX Live Demo</title>
+<style>
+#drop{
+        border:2px dashed #bbb;
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+        border-radius:5px;
+        padding:25px;
+        text-align:center;
+        font:20pt bold,"Vollkorn";color:#bbb
+}
+#b64data{
+        width:100%;
+}
+</style>
+</head>
+<body>
+<b>JS-XLSX Live Demo</b><br />
+<input type="radio" name="format" value="csv" checked> CSV<br>
+<input type="radio" name="format" value="json"> JSON<br>
+<input type="radio" name="format" value="form"> FORMULAE<br>
 
-      /**
-       * Called when the client library is loaded to start the auth flow.
-       */
-      function handleClientLoad() {
-        window.setTimeout(checkAuth, 1);
-      }
+<div id="drop">Drop an XLSX file here to see sheet data.</div>
+<textarea id="b64data">... or paste a base64-encoding here</textarea>
+<input type="button" id="dotext" value="Click here to process the base64 text" onclick="b64it();"/>
+<pre id="out"></pre>
+<br />
+<script src="js/jszip.js"></script>
+<script src="js/xlsx.js"></script>
+<script>
+function xlsxworker(data, cb) {
+        var worker = new Worker('./js/xlsxworker.js');
+        worker.onmessage = function(e) {
+                switch(e.data.t) {
+                        case 'ready': break;
+                        case 'e': console.error(e.data.d);
+                        case 'xlsx': cb(JSON.parse(e.data.d)); break;
+                }
+        };
+    var arr = btoa(String.fromCharCode.apply(null, new Uint8Array(data)));
+        worker.postMessage(arr);
+}
 
-      /**
-       * Check if the current user has authorized the application.
-       */
-      function checkAuth() {
-        gapi.auth.authorize(
-            {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true},
-            handleAuthResult);
-      }
-
-      /**
-       * Called when authorization server replies.
-       *
-       * @param {Object} authResult Authorization result.
-       */
-      function handleAuthResult(authResult) {
-        var authButton = document.getElementById('authorizeButton');
-        var filePicker = document.getElementById('filePicker');
-        authButton.style.display = 'none';
-        filePicker.style.display = 'none';
-        if (authResult && !authResult.error) {
-          // Access token has been successfully retrieved, requests can be sent to the API.
-          filePicker.style.display = 'block';
-          filePicker.onchange = uploadFile;
-        } else {
-          // No access token could be retrieved, show the button to start the authorization flow.
-          authButton.style.display = 'block';
-          authButton.onclick = function() {
-              gapi.auth.authorize(
-                  {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': false},
-                  handleAuthResult);
-          };
+function get_radio_value( radioName ) {
+        var radios = document.getElementsByName( radioName );
+        for( var i = 0; i < radios.length; i++ ) {
+                if( radios[i].checked ) {
+                        return radios[i].value;
+                }
         }
-      }
+}
 
-      /**
-       * Start the file upload.
-       *
-       * @param {Object} evt Arguments from the file selector.
-       */
-      function uploadFile(evt) {
-        gapi.client.load('drive', 'v2', function() {
-          var file = evt.target.files[0];
-          insertFile(file);
+function to_json(workbook) {
+        var result = {};
+        workbook.SheetNames.forEach(function(sheetName) {
+                var roa = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+                if(roa.length > 0){
+                        result[sheetName] = roa;
+                }
         });
-      }
+        return result;
+}
 
-      /**
-       * Insert new file.
-       *
-       * @param {File} fileData File object to read data from.
-       * @param {Function} callback Function to call when the request is complete.
-       */
-      function insertFile(fileData, callback) {
-        const boundary = '-------314159265358979323846';
-        const delimiter = "\r\n--" + boundary + "\r\n";
-        const close_delim = "\r\n--" + boundary + "--";
+function to_csv(workbook) {
+        var result = [];
+        workbook.SheetNames.forEach(function(sheetName) {
+                var csv = XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+                if(csv.length > 0){
+                        result.push("SHEET: " + sheetName);
+                        result.push("");
+                        result.push(csv);
+                }
+        });
+        return result.join("\n");
+}
 
-        var reader = new FileReader();
-        reader.readAsBinaryString(fileData);
-        reader.onload = function(e) {
-          var contentType = fileData.type || 'application/octet-stream';
-          var metadata = {
-            'title': fileData.name,
-            'mimeType': contentType
-          };
+function to_formulae(workbook) {
+        var result = [];
+        workbook.SheetNames.forEach(function(sheetName) {
+                var formulae = XLSX.utils.get_formulae(workbook.Sheets[sheetName]);
+                if(formulae.length > 0){
+                        result.push("SHEET: " + sheetName);
+                        result.push("");
+                        result.push(formulae.join("\n"));
+                }
+        });
+        return result.join("\n");
+}
 
-          var base64Data = btoa(reader.result);
-          var multipartRequestBody =
-              delimiter +
-              'Content-Type: application/json\r\n\r\n' +
-              JSON.stringify(metadata) +
-              delimiter +
-              'Content-Type: ' + contentType + '\r\n' +
-              'Content-Transfer-Encoding: base64\r\n' +
-              '\r\n' +
-              base64Data +
-              close_delim;
+var tarea = document.getElementById('b64data');
+function b64it() {
+        var wb = XLSX.read(tarea.value, {type: 'base64'});
+        process_wb(wb);
+}
 
-          var request = gapi.client.request({
-              'path': '/upload/drive/v2/files',
-              'method': 'POST',
-              'params': {'uploadType': 'multipart'},
-              'headers': {
-                'Content-Type': 'multipart/mixed; boundary="' + boundary + '"'
-              },
-              'body': multipartRequestBody});
-          if (!callback) {
-            callback = function(file) {
-              console.log(file)
-            };
-          }
-          request.execute(callback);
+function process_wb(wb) {
+        var output = "";
+        switch(get_radio_value("format")) {
+                case "json":
+                output = JSON.stringify(to_json(wb), 2, 2);
+                        break;
+                case "form":
+                        output = to_formulae(wb);
+                        break; 
+                default:
+                output = to_csv(wb);
         }
-      }
-    </script>
-    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
-  </head>
-  <body>
-    <!--Add a file picker for the user to start the upload process -->
-    <input type="file" id="filePicker" style="display: none" />
-    <input type="button" id="authorizeButton" style="display: none" value="Authorize" />
-  </body>
+        if(out.innerText === undefined) out.textContent = output;
+        else out.innerText = output;
+}
+
+var drop = document.getElementById('drop');
+function handleDrop(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var files = e.dataTransfer.files;
+        var i,f;
+        for (i = 0, f = files[i]; i != files.length; ++i) {
+                var reader = new FileReader();
+                var name = f.name;
+                reader.onload = function(e) {
+                        var data = e.target.result;
+                        if(typeof Worker !== 'undefined') {
+                                xlsxworker(data, process_wb);
+                        } else {
+                                //var wb = XLSX.read(data, {type: 'binary'});
+                                var arr = String.fromCharCode.apply(null, new Uint8Array(data));
+                                var wb = XLSX.read(btoa(arr), {type: 'base64'});
+                                process_wb(wb);
+                        }
+                };
+                //reader.readAsBinaryString(f);
+                reader.readAsArrayBuffer(f);
+        }
+}
+
+function handleDragover(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'copy';
+}
+
+if(drop.addEventListener) {
+        drop.addEventListener('dragenter', handleDragover, false);
+        drop.addEventListener('dragover', handleDragover, false);
+        drop.addEventListener('drop', handleDrop, false);
+}
+</script>
+</body>
 </html>

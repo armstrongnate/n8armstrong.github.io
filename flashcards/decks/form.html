@@ -1,24 +1,24 @@
 <div class='panel panel-default'>
   <div class='panel-body'>
     <div class='row'>
-      <div class='col-md-11'>
+      <div class='col-md-11 col-sm-10'>
         <div class='form-group'>
           <input type='text' class='form-control' ng-model='currentDeck.deck.name'>
         </div>
       </div>
     </div>
     <div class='row' ng-repeat='card in currentDeck.deck.cards'>
-      <div class='col-md-5 col-xs-10'>
+      <div class='col-sm-5 col-xs-10 col-md-5'>
         <div class='form-group'>
           <input type='text' class='form-control' ng-model='card.front'>
         </div>
       </div>
-      <div class='col-md-6 col-xs-10'>
+      <div class='col-sm-5 col-xs-10 col-md-6'>
         <div class='form-group'>
           <textarea class='form-control' ng-model='card.back'></textarea>
         </div>
       </div>
-      <div class='col-md-1 col-xs-2'>
+      <div class='col-sm-2 col-xs-2 col-md-1'>
         <a ng-click='deckCtrl.destroyCardAtIndex($index)'>
           <span class='glyphicon glyphicon-circle_minus text-danger' ng-show='card.front || card.back'></span>
         </a>

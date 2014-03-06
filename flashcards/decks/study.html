@@ -20,7 +20,8 @@
       <h2 class='text-muted'>Select a deck</h2>
     </div>
     <div class='col-md-12 flashcard' ng-show='deck' ng-swipe-left='studyCtrl.nextCard()' ng-swipe-right='studyCtrl.prevCard()' ng-click='studyCtrl.flipCard()'>
-      <h1>{{deck.cards[currentCardIndex][currentSide]}}</h1>
+      <h1 ng-show='currentSide == "front"'>{{deck.cards[currentCardIndex][currentSide]}}</h1>
+      <h4 ng-show='currentSide == "back"'>{{deck.cards[currentCardIndex][currentSide]}}</h4>
     </div>
     <div class='row'>
       <div class='col-md-12'>
@@ -35,7 +36,7 @@
       <ul class='list-group'>
         <li class='list-group-item'>
           <div class='progress'>
-            <div class='progress-bar progress-bar-success' style='width: 40%'></div>
+            <div class='progress-bar progress-bar-success' style='width: {{(currentCardIndex / deck.cards.length) * 100}}%'></div>
           </div>
         </li>
       </ul>

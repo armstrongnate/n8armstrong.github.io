@@ -1,13 +1,13 @@
 flashcards.controller('DecksCtrl', ['$scope', '$http', '$filter', '$timeout', '$routeParams', '$location', 'Deck', function DecksCtrl($scope, $http, $filter, $timeout, $routeParams, $location, Deck) {
+  var _this = this;
 
   var access_token = 'AIzaSyD-La4vdDIC6bjt9KY5hHGuxQ1uMgGaSnA';
   $scope.currentDeck = {}
   $scope.decksSpinner = {}
 
-  var url = 'https://docs.google.com/spreadsheet/ccc?key=0Apx0jIgUFkKpdFJWQ2hFclBiaEJNT0UyMUxnQURKVnc&usp=drive_web#gid=0' + '?access_token=' + access_token;
-  $http.get(url).success(function(data) {
-    console.log(data);
-  });
+  $scope.resetDecks = function() {
+    _this.resetDecks();
+  }
 
   this.resetDecks = function() {
     $scope.decksSpinner.spinning = true;
@@ -16,7 +16,7 @@ flashcards.controller('DecksCtrl', ['$scope', '$http', '$filter', '$timeout', '$
       $scope.decksSpinner.spinning = false;
     });
     if ($routeParams.deckId) {
-      $scope.currentDeck.deck = Deck.get({deckId: $routeParams.deckId}, function() {
+      $scope.currentDeck.deck = Deck.get({deckId: $routeParams.deckId}, function(r) {
         addBlankCardsToDeck();
       });
     } else {
@@ -66,7 +66,7 @@ flashcards.controller('DecksCtrl', ['$scope', '$http', '$filter', '$timeout', '$
   this.destroy = function() {
     var _this = this;
     $scope.currentDeck.deck.$delete(function() {
-      _this.resetDecks();
+      $location.path('/decks/')
     });
   }
 
