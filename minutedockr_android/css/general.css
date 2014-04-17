@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "proxima nova";
+  src: url("../fonts/Proxima Nova Regular.otf");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "proxima nova";
+  src: url("../fonts/Proxima Nova Bold.otf");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: "proxima nova";
+  src: url("../fonts/Proxima Nova Extrabold.otf");
+  font-weight: 900;
+  font-style: normal; }
+
+@font-face {
+  font-family: "proxima nova";
+  src: url("../fonts/Proxima Nova Semibold.otf");
+  font-weight: 700;
+  font-style: normal; }
+
+@media screen and (min-width: 1600px) {
+  .container {
+    max-width: 1600px; } }
+
+@media screen and (min-width: 1900px) {
+  .container {
+    max-width: 1900px; } }
+
+body {
+  font-family: "proxima nova"; }
+
+a {
+  color: #e2a301; }
+
+.intro {
+  background: url("../images/crossword.png") repeat; }
+  .intro .next-banner {
+    height: 542px;
+    overflow: hidden;
+    margin-top: 100px; }
+    .intro .next-banner h1 {
+      color: #5e9217;
+      font-weight: 900;
+      font-size: 65px; }
+      .intro .next-banner h1 small {
+        font-size: 41px; }
+    .intro .next-banner img {
+      display: block;
+      width: 1024px;
+      margin: 0 auto;
+      margin-top: 55px; }
+
+.features {
+  background: url("../images/stardust_@2X.png");
+  padding-bottom: 50px; }
+  .features .kicker {
+    margin-top: 50px;
+    margin-bottom: 60px; }
+    .features .kicker h2, .features .kicker h3 {
+      text-align: center; }
+    .features .kicker h2 {
+      font-size: 50px;
+      color: white;
+      font-weight: bold; }
+    .features .kicker h3 {
+      color: #bbbbbb; }
+  .features .descriptions {
+    margin-top: 57px; }
+    .features .descriptions h4 {
+      font-weight: 900;
+      color: #5e9217;
+      font-size: 22px; }
+    .features .descriptions p {
+      font-size: 18px;
+      color: #eeeeee; }
+  .features img.screenshot {
+    display: block;
+    width: 500px;
+    margin: 0 auto;
+    z-index: -1; }
+  .features img.arrow {
+    display: block;
+    position: absolute;
+    top: 300px;
+    left: -75px;
+    opacity: 0.3;
+    height: 35px;
+    z-index: 100; }
+    .features img.arrow:hover {
+      opacity: 1;
+      cursor: pointer; }
+    .features img.arrow.left {
+      left: 177px; }
+
+.contact {
+  background: #a94442;
+  padding: 15px;
+  color: #dddddd; }
+  .contact h3 {
+    font-weight: normal; }
+  .contact .twitter {
+    position: absolute;
+    right: 30px;
+    top: 18px;
+    width: 30px;
+    height: 30px;
+    background: url("../images/twitter.png");
+    background-size: 30px 30px;
+    opacity: 0.6; }
+    .contact .twitter:hover {
+      opacity: 1;
+      cursor: pointer; }

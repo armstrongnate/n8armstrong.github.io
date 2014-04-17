@@ -1,0 +1,33 @@
+<div class='row'>
+  <div class='col-sm-6'>
+    <div class='row'>
+      <div class='panel panel-default'>
+        <div class='panel-body'>
+          <p>
+            Decks
+            <a href='#/decks' class='pull-right'>
+              <span class='glyphicon glyphicon-circle_plus text-success'></span>
+            </a>
+          </p>
+        </div>
+        <ul class='list-group'>
+          <li us-spinner class='spinner list-group-item' ng-show='decksSpinner.spinning'></li>
+          <a ng-repeat='d in decks' ng-href="#/decks/{{d.id}}/edit" ng-hide='decksSpinner.spinning'>
+            <li class='list-group-item'>
+              <span>{{d.name}}</span>
+              <span class='badge'>{{d.cards.length}}</span>
+            </li>
+          </a>
+        </ul>
+      </div>
+    </div>
+    <div class='row' ng-controller='UploadsCtrl'>
+      <div class='col-md-12'>
+        <div id="drop">Drop an XLSX file here to upload a deck.</div>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-6'>
+    <div ng-include="'decks/form.html'"></div>
+  </div>
+</div>

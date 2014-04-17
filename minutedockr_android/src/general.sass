@@ -1,0 +1,119 @@
+$md-green: #5e9217
+$md-emphasis: #e2a301
+
+@font-face
+  font-family: "proxima nova"
+  src: url("../fonts/Proxima Nova Regular.otf")
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: "proxima nova"
+  src: url("../fonts/Proxima Nova Bold.otf")
+  font-weight: bold
+  font-style: normal
+
+@font-face
+  font-family: "proxima nova"
+  src: url("../fonts/Proxima Nova Extrabold.otf")
+  font-weight: 900
+  font-style: normal
+
+@font-face
+  font-family: "proxima nova"
+  src: url("../fonts/Proxima Nova Semibold.otf")
+  font-weight: 700
+  font-style: normal
+
+.container
+  @media screen and (min-width: 1600px)
+    max-width: 1600px
+.container
+  @media screen and (min-width: 1900px)
+    max-width: 1900px
+
+body
+  font-family: "proxima nova"
+
+a
+  color: #e2a301
+
+.intro
+  background: url('../images/crossword.png') repeat
+  .next-banner
+    height: 542px
+    overflow: hidden
+    margin-top: 100px
+    h1
+      color: $md-green
+      font-weight: 900
+      font-size: 65px
+      small
+        font-size: 41px
+    img
+      display: block
+      width: 1024px
+      margin: 0 auto
+      margin-top: 55px
+
+.features
+  background: url('../images/stardust_@2X.png')
+  padding-bottom: 50px
+  .kicker
+    margin-top: 50px
+    margin-bottom: 60px
+    h2, h3
+      text-align: center
+    h2
+      font-size: 50px
+      color: white
+      font-weight: bold
+    h3
+      color: #bbb
+  .descriptions
+    margin-top: 57px
+    h4
+      font-weight: 900
+      color: $md-green
+      font-size: 22px
+    p
+      font-size: 18px
+      color: #eee
+  img
+    &.screenshot
+      display: block
+      width: 500px
+      margin: 0 auto
+      z-index: -1
+    &.arrow
+      display: block
+      position: absolute
+      top: 300px
+      left: -75px
+      opacity: .3
+      height: 35px
+      z-index: 100
+      &:hover
+        opacity: 1.0
+        cursor: pointer
+      &.left
+        left: 177px
+
+.contact
+  background: #a94442
+  padding: 15px
+  color: #ddd
+  h3
+    font-weight: normal
+  .twitter
+    position: absolute
+    right: 30px
+    top: 18px
+    width: 30px
+    height: 30px
+    background: url('../images/twitter.png')
+    background-size: 30px 30px
+    opacity: .6
+    &:hover
+      opacity: 1
+      cursor: pointer
