@@ -19,7 +19,7 @@
         <div class='col-md-12'>
           <div class='next-banner'>
             <h1>MinuteDockr <small>The next big thing is here.</small></h1>
-            <img src='images/current_entry.png' />
+            <img src='images/current_entry1.png' />
           </div>
         </div>
       </div>
@@ -51,15 +51,12 @@
           </div>
           <div ng-show='frame == 2'>
             <h4>You've got time, we've got management.</h4>
-            <p>View all your time entries a day, week or month at a time.</p>
-            <p>Need to edit or redock an entry? No problem. Just tap the entry to expose all the handy options available to you.</p>
+            <p>View all your time entries a day or week at a time.</p>
           </div>
           <div ng-show='frame == 3'>
-            <h4>Did we mention it uses bluetooth?</h4>
-            <p>Would you like to be reminded to clock in when you get to work? Okay.</p>
-            <p>Here's one better, we'll clock you in <b>as soon as you get to work</b> and clock you out <b>when you leave</b>. Cool, right?</p>
-            <p>Or how about a <em>"Hey, it's 9:00 am. Shouldn't you be clocked in?"</em>. We've got that too.<p>
-            <p>All of these features will be included for free because, well, it's Android.</p>
+            <h4>Widgets? Why, of course!</h4>
+            <p>The only way this app could get any better is if it had widgets. Well guess what? It does.</p>
+            <p>Start and stop your timer from the lock screen or the home screen using the handy dandy widgets.</p>
           </div>
 
         </div>
@@ -68,9 +65,10 @@
             <img src='images/left-arrow.png' class='arrow left' ng-click='prev(frame)' />
             <img src='images/right-arrow.png' class='arrow' ng-click='next(frame)' />
             <img src='images/login.png' width='500px' class='screenshot' ng-show='frame == 0' />
-            <img src='images/current_entry.png' width='500px' class='screenshot' ng-show='frame == 1' />
-            <img src='images/entries.png' width='500px' class='screenshot' ng-show='frame == 2' />
-            <img src='images/settings.png' width='500px' class='screenshot' ng-show='frame == 3' />
+            <img src='images/current_entry1.png' width='500px' class='screenshot' ng-show='frame == 1' />
+            <img src='images/today_device.png' width='500px' class='screenshot' ng-show='frame == 2 && subFrame % 2 == 0' />
+            <img src='images/week_device.png' width='500px' class='screenshot' ng-show='frame == 2 && subFrame % 2 != 0' />
+            <img src='images/home_widget_device.png' width='500px' class='screenshot' ng-show='frame == 3' />
           </div>
         </div>
       </div>

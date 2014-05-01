@@ -6,8 +6,17 @@
 
   NUM_FRAMES = 4;
 
-  featuresCtrl = function($scope) {
+  featuresCtrl = function($scope, $timeout) {
+    var subFrame;
     $scope.frame = 0;
+    $scope.subFrame = 0;
+    subFrame = function() {
+      return $timeout(function() {
+        $scope.subFrame += 1;
+        return subFrame();
+      }, 1500);
+    };
+    subFrame();
     $scope.next = function() {
       return $scope.frame = ($scope.frame + 1) % NUM_FRAMES;
     };
@@ -19,6 +28,6 @@
     };
   };
 
-  minutedockr.controller('featuresCtrl', ['$scope', featuresCtrl]);
+  minutedockr.controller('featuresCtrl', ['$scope', '$timeout', featuresCtrl]);
 
 }).call(this);
