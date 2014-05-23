@@ -14,7 +14,7 @@
       return $timeout(function() {
         $scope.subFrame += 1;
         return subFrame();
-      }, 1500);
+      }, 2000);
     };
     subFrame();
     $scope.next = function() {
