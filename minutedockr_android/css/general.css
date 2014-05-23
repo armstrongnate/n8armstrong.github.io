@@ -69,14 +69,14 @@ a {
       font-size: 65px; }
       @media screen and (max-width: 600px) {
         .intro .next-banner h1 {
-          font-size: 55px; } }
+          font-size: 40px; } }
       .intro .next-banner h1 small {
         display: block;
         margin-top: -10px;
         font-size: 41px; }
         @media screen and (max-width: 600px) {
           .intro .next-banner h1 small {
-            font-size: 34px; } }
+            font-size: 30px; } }
     .intro .next-banner img {
       display: block;
       width: 1024px;
@@ -101,12 +101,15 @@ a {
       .features .kicker img.widget-preview {
         width: 326px;
         margin-bottom: 50px; }
+        @media screen and (max-width: 600px) {
+          .features .kicker img.widget-preview {
+            width: 260px; } }
       .features .kicker img.android-robot {
         width: 55px;
         margin: 0 20px; }
         @media screen and (max-width: 600px) {
           .features .kicker img.android-robot {
-            width: 38px; } }
+            width: 30px; } }
     .features .kicker h2, .features .kicker h3 {
       text-align: center; }
     .features .kicker h2 {
@@ -135,14 +138,14 @@ a {
       line-height: 70px; }
       @media screen and (max-width: 600px) {
         .features .kicker a {
-          line-height: 47px;
-          font-size: 21px; } }
+          line-height: 44px;
+          font-size: 16px; } }
       .features .kicker a div {
         display: inline-block;
         margin: 0 auto;
         text-align: center;
         overflow: hidden;
-        margin-bottom: -30px; }
+        margin-bottom: -20px; }
         @media screen and (max-width: 600px) {
           .features .kicker a div {
             margin-bottom: -18px; } }
@@ -161,7 +164,7 @@ a {
     margin: 0 auto; }
     @media screen and (max-width: 400px) {
       .features .screenshots .screenshot {
-        margin-left: -37px; } }
+        margin-left: -70px; } }
 
 .contact {
   background: #a94442;
