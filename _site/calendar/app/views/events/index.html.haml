@@ -1,0 +1,65 @@
+%h1 CalendarApp
+
+= render 'quick_view'
+.panel.panel-default.month
+  .panel-heading{ ng: { hide: 'display == "editEvent"' } }
+    .btn-toolbar.pull-left
+      .btn-group
+        %button.btn.btn-default{ ng: { click: 'goToToday()' } } Today
+      .btn-group
+        %button.btn.btn-default{ ng: { click: 'setMonth(month.monthNum - 1)' } } Back
+        %button.btn.btn-default{ ng: { click: 'setMonth(month.monthNum + 1)' } } Next
+    %h5.pull-left {{months[month.monthNum]}} {{month.year}}
+    .btn-toolbar.pull-right
+      .btn-group
+        %button.btn.btn-default{ ng: { click: 'display = "month"' } } Month
+        %button.btn.btn-default{ ng: { click: 'display = "agenda"' } } Agenda
+      .btn-group
+        %button.btn.btn-primary{ ng: { click: 'clickEditEvent({})' } } Create
+  .panel-body.month{ ng: { show: 'display == "month"' } }
+    .row
+      .col-md-2.day-col{ ng: { repeat: "day in days" } }
+        .day.header{ ng: { class: "{'left-edge': $index % 7 == 0}"}} {{day}}
+    .row
+      .col-md-2.day-col{ ng: { repeat: "day in month.days" } }
+        .day{ ng: { class: "{'right-edge': ($index + 1) % 7 == 0, 'other-month': $index - (month.startsOn() - 1) > month.daysCount() || $index < month.startsOn(), 'today': dayIsToday(day.date)}", click: 'month.clickDay(day, $event)' } }
+          %span.date-number
+            {{day.dateNumber}}
+          %div{ ng: { repeat: 'event in day.events' } }
+            %a{ event_link: true, color: "event.color", event: 'event', ng: { click: 'month.clickEvent(event, day, $event)', class: "{'multi-day': event.is_multi_day}" } } {{event.title}}
+  .panel-body{ ng: { show: 'display == "agenda"' } }
+    .row
+      .col-md-6
+        %div{ ng: { repeat: 'day in month.days | startingAt:month.startsOn() | atLeastOne:"events"' } }
+          %h5 {{day.date | date:'fullDate'}}
+          %div.list-group
+            %a.list-group-item{ ng: { repeat: 'event in day.events', click: 'clickEditEvent(event)' } }
+              {{event.starts_at.toDate() | date:'shortTime'}} {{event.title}}
+  .panel-body{ ng: { show: 'display == "editEvent"' } }
+    .row
+      .col-md-6
+        .form-group
+          %label.form-label Title
+          %input.form-control{ type: 'text', ng: { model: 'event.title' } }
+        .form-group
+          %input{ type: 'text', ng: { model: 'event.starts_at_date' } }
+          %input{ type: 'text', ng: { model: 'event.starts_at_time' } }
+          %span{ ng: { show: 'event.all_day == "NO"' } }
+            to
+            %input{ type: 'text', ng: { model: 'event.ends_at_date' } }
+            %input{ type: 'text', ng: { model: 'event.ends_at_time' } }
+        .form-group
+          %label All day
+          %input{ type: 'checkbox', ng: { model: 'event.all_day', 'true-value' => 'YES', 'false-value' => 'NO' } }
+        .form-group
+          %label.control-label Location
+          %input.form-control{ type: 'text', ng: { model: 'event.location' } }
+        .form-group
+          %label.control-label Notes
+          %textarea.form-control{ ng: { model: 'event.notes' } }
+        .form-group
+          %label.control-label Color
+          %input.form-control{ type: 'text', ng: { model: 'event.color' } }
+        .form-actions
+          %button.btn.btn-primary{ ng: { click: 'saveEvent(event)' } } Save
+          %button.btn.btn-link{ ng: { click: 'display = "month"' } } Cancel

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Nate A</title>
+ <link href="http://hyde.getpoole.com/atom.xml" rel="self"/>
+ <link href="http://hyde.getpoole.com/"/>
+ <updated>2015-03-17T23:44:06-06:00</updated>
+ <id>http://hyde.getpoole.com</id>
+ <author>
+   <name>Mark Otto</name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>Hello World</title>
+   <link href="http://hyde.getpoole.com/2015/03/17/hello-world/"/>
+   <updated>2015-03-17T00:00:00-06:00</updated>
+   <id>http://hyde.getpoole.com/2015/03/17/hello-world</id>
+   <content type="html">&lt;p&gt;My name is Nate. I work for &lt;a href=&quot;http://custombit.com&quot;&gt;Custom Bit&lt;/a&gt; as a rails/iOS
+developer while attending university. I&amp;#39;ll graduate at the end of this year with a
+bachelor&amp;#39;s degree in computer science.&lt;/p&gt;
+
+&lt;p&gt;This site is powered by &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; and &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;.
+I followed &lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;this tutorial&lt;/a&gt;
+pretty closely which introduced me to &lt;a href=&quot;https://github.com/poole/poole&quot;&gt;Poole&lt;/a&gt; which I
+highly recommend. I am using the &lt;a href=&quot;http://hyde.getpoole.com/&quot;&gt;Hyde&lt;/a&gt; theme with almost
+zero customizations.&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>

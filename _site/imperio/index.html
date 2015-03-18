@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <link href='css/hover-info.css' rel='stylesheet' />
+    <link href='css/main.css' rel='stylesheet' />
+    <link href='css/animated.css' rel='stylesheet' />
+    <script src='http://code.jquery.com/jquery-1.9.1.js'></script>
+    <script src='http://code.jquery.com/ui/1.10.3/jquery-ui.js'></script>
+    <script src='js/main.js'></script>
+  </head>
+  <body>
+    <div class='container'>
+      <div class='row'>
+
+        <header>
+          <div class='col-md-6 animated bounceInDown'>
+            <div id="logo"></div>
+            <h1>Imperi<span>o</span></h1>
+          </div>
+          <div class='col-md-6 pull-right'>
+            <nav>
+              <ul>
+                <li class='selected'>Home</li>
+                <li>About</li>
+                <li>Services</li>
+                <li>Portfolio</li>
+                <li>Contact</li>
+                <li>Blog</li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+      </div>
+
+      <section id='slider' class='row'>
+        <div class='col-md-12'>
+          <div class='cool-borders striped container'>
+            <div class='middle'>
+              <div class='image-container'>
+                <div class='first slider-heading'>
+                  <p>We Strive To Be</p>
+                </div>
+                <div class='second slider-heading'>
+                  <p id='strive-to-be'>Awesome Blossoms</p>
+                </div>
+                <div id='bullets'>
+                  <ul>
+                    <li data-index='0' class='selected'></li>
+                    <li data-index='1'></li>
+                    <li data-index='2'></li>
+                    <li data-index='3'></li>
+                    <li data-index='4'></li>
+                    <li data-index='5'></li>
+                  </ul>
+                </div>
+                <div id='slides'>
+                  <img src='images/slider0.jpg'>
+                  <img src='images/slider1.jpg'>
+                  <img src='images/slider2.jpg'>
+                  <img src='images/slider3.jpg'>
+                  <img src='images/slider4.jpg'>
+                  <img src='images/slider5.jpg'>
+                </div>
+              </div>
+            </div>
+            <div class='bottom-right'></div>
+          </div>
+        </div>
+      </section>
+
+      <section class='row' id='call-to-action'>
+        <div class='col-md-12'>
+          <div class='lines'></div>
+          <div class='lines middle'>
+            <h2>Imperio is a group of <a>Creative Professionals</a> who desire nothing else but to be awesome.</h2>
+          </div>
+          <div class='lines middle'>
+            <h3>Check out some of our latest projects below, we think you'll like them.</h3>
+          </div>
+          <div class='lines'></div>
+        </div>
+      </section>
+
+      <section class='row' id='featured'>
+        <div class='col-md-4'>
+          <div class='cool-borders container striped medium'>
+            <div class='middle block_holder'>
+              <div class='image-container block'>
+                <img src='images/work_large1.jpg' />
+                <div class="hover_info">
+                    <p>Rockable Press Web Development</p>
+                    <a href="#" data-image='0'>Read more</a>
+                </div>
+              </div>
+            </div>
+            <div class='bottom-right'></div>
+          </div>
+        </div>
+        <div class='col-md-4'>
+          <div class='cool-borders container striped medium'>
+            <div class='middle block_holder'>
+              <div class='image-container block'>
+                <img src='images/work_large2.jpg' />
+                <div class="hover_info">
+                    <p>Graphic River Brochure Design</p>
+                    <a href="#" data-image='4'>Read more</a>
+                </div>
+              </div>
+            </div>
+            <div class='bottom-right'></div>
+          </div>
+        </div>
+        <div class='col-md-4'>
+          <div class='cool-borders container striped medium'>
+            <div class='middle block_holder'>
+              <div class='image-container block'>
+                <img src='images/work_large3.jpg' />
+                <div class="hover_info">
+                    <p>Moo Minicards Marketing Materials</p>
+                    <a href="#" data-image='1'>Read more</a>
+                </div>
+              </div>
+            </div>
+            <div class='bottom-right'></div>
+          </div>
+        </div>
+      </section>
+
+      <section class='row' id='why'>
+        <div class='col-md-6'>
+          <div class='col-md-12'>
+            <div class='lines'>
+              <h3>Why Are We Awesome?</h3>
+            </div>
+          </div>
+          <div class='col-md-12 reason'>
+            <div class='row'>
+              <div class='col-md-6 left'>
+                <div class='buttn-circle buttn'>
+                  <div class='outer'>
+                    <div class='inner'><span>1</span></div>
+                  </div>
+                </div>
+                <div class='big-number'>1</div>
+                <h4>We always strive for greatness</h4>
+              </div>
+              <div class='col-md-6'>
+                <p>
+                  Fingerstache sustainable Cosby sweater banh mi gluten-free farm-to-table.
+                  Hella mixtape mustache, butcher readymade quinoa next level.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class='col-md-12 reason'>
+            <div class='lines'></div>
+            <div class='row'>
+              <div class='col-md-6 left'>
+                <div class='buttn-circle buttn'>
+                  <div class='outer'>
+                    <div class='inner'><span>2</span></div>
+                  </div>
+                </div>
+                <div class='big-number'>2</div>
+                <h4>We trust in our mad design skills</h4>
+              </div>
+              <div class='col-md-6'>
+                <p>
+                  Tousled keffiyeh ennui Banksy, cornhole master cleanse chia you probably haven't heard of them.
+                  Carles farm-to-table Bushwick, vegan bicycle.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class='col-md-12 reason'>
+            <div class='lines'></div>
+            <div class='row'>
+              <div class='col-md-6 left'>
+                <div class='buttn-circle buttn'>
+                  <div class='outer'>
+                    <div class='inner'><span>3</span></div>
+                  </div>
+                </div>
+                <div class='big-number'>3</div>
+                <h4>We ensure you love the result</h4>
+              </div>
+              <div class='col-md-6'>
+                <p>
+                  Pork belly quinoa brunch Blue Bottle pug, cred disrupt Tumblr Odd Future forage swag wayfarers.
+                  Pour-over Bushwick Blue Bottle, ethical put a bird on.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-md-6' id='latest-work'>
+          <div class='col-md-12'>
+            <div class='lines'>
+              <h3>Check Out Our Latest Work</h3>
+            </div>
+          </div>
+          <div class='row first'>
+            <div class='col-md-6'>
+              <div class='cool-borders container striped small'>
+                <div class='middle block_holder'>
+                  <div class='image-container block'>
+                    <img src='images/work_med1.jpg' />
+                  </div>
+                </div>
+                <div class='bottom-right'></div>
+              </div>
+              <h5 class='container'>Creattica Web Development</h5>
+            </div>
+            <div class='col-md-6'>
+              <div class='cool-borders container striped small'>
+                <div class='middle block_holder'>
+                  <div class='image-container block'>
+                    <img src='images/work_med2.jpg' />
+                  </div>
+                </div>
+                <div class='bottom-right'></div>
+              </div>
+              <h5 class='container'>Graphic River Web Design</h5>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-md-6'>
+              <div class='cool-borders container striped small'>
+                <div class='middle block_holder'>
+                  <div class='image-container block'>
+                    <img src='images/work_med3.jpg' />
+                  </div>
+                </div>
+                <div class='bottom-right'></div>
+              </div>
+              <h5 class='container'>PSD Tuts Skilled Tutorials</h5>
+            </div>
+            <div class='col-md-6'>
+              <div class='cool-borders container striped small'>
+                <div class='middle block_holder'>
+                  <div class='image-container block'>
+                    <img src='images/work_med4.jpg' />
+                  </div>
+                </div>
+                <div class='bottom-right'></div>
+              </div>
+              <h5 class='container'>Rockable Press Design</h5>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <div class='row' id='view-buttons'>
+        <div class='col-md-6'>
+          <div class='buttn pull-right buttn-square'>
+            <div class='outer'>
+              <a href='#' class='inner'>
+                <span>View Services</span>
+                <div class='icon'>
+                  <div class='arrow-right'></div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class='buttn pull-right buttn-square'>
+            <div class='outer'>
+              <a href='#' class='inner'>
+                <span>View Portfolio</span>
+                <div class='icon'>
+                  <div class='arrow-right'></div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id='blog-testimonials'>
+
+        <!-- From the blog -->
+        <div class='col-md-6'>
+          <div class='col-md-12'>
+            <div class='lines'>
+              <h3>From The Blog</h3>
+            </div>
+          </div>
+          <div class='row blog-entry'>
+            <div class='col-md-4'>
+              <div class='cool-borders striped extra-small'>
+                <div class='middle'>
+                  <div class='image-container'>
+                    <img src='images/blog1.jpg' />
+                  </div>
+                </div>
+                <div class='bottom-right'></div>
+              </div>
+            </div>
+            <div class='col-md-8'>
+              <h4>Being Creative Takes Work</h4>
+              <h5>For mocking up video Photoshop una para...</h5>
+              <h4>...</h4>
+              <div>
+                <p><a>15th February 2012</a> By Imperio</p>
+                <div class='icons pull-right'>
+                  <span>32</span><i class='comments-icon'></i>
+                  <span class='like-count'>115</span><i class='heart-icon'></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='row blog-entry border-top'>
+            <div class='col-md-4'>
+              <div class='cool-borders striped extra-small'>
+                <div class='middle'>
+                  <div class='image-container'>
+                    <img src='images/blog2.jpg' />
+                  </div>
+                </div>
+                <div class='bottom-right'></div>
+              </div>
+            </div>
+            <div class='col-md-8'>
+              <h4>Imperio Helps Out Charity</h4>
+              <h5>For mocking up video Photoshop una para...</h5>
+              <h4>...</h4>
+              <div>
+                <p><a>15th February 2012</a> By Imperio</p>
+                <div class='icons pull-right'>
+                  <span>22</span><i class='comments-icon'></i>
+                  <span class='like-count'>125</span><i class='heart-icon'></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='row blog-entry border-top'>
+            <div class='col-md-4'>
+              <div class='cool-borders striped extra-small'>
+                <div class='middle'>
+                  <div class='image-container'>
+                    <img src='images/blog3.jpg' />
+                  </div>
+                </div>
+                <div class='bottom-right'></div>
+              </div>
+            </div>
+            <div class='col-md-8'>
+              <h4>Taking Clients To The Next Level</h4>
+              <h5>For mocking up video Photoshop una para...</h5>
+              <h4>...</h4>
+              <div>
+                <p><a>15th February 2012</a> By Imperio</p>
+                <div class='icons pull-right'>
+                  <span>75</span><i class='comments-icon'></i>
+                  <span class='like-count'>545</span><i class='heart-icon'></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class='col-md-6'>
+          <div class='col-md-12'>
+            <div class='lines'>
+              <h3>What Do Clients Say?</h3>
+            </div>
+          </div>
+          <div class='col-md-12'>
+            <div class='cool-borders bubble'>
+              <div class='middle'>
+                <div class='testimonial-container'>
+                  <h4 class='testimonial'>Bitters trust fund sriracha small batch, bicycle rights mixtape chia Helvetica tofu. Kale chips put a bird on it roof party seitan YOLO.</h4>
+                  <h4 class='testimonial'>Raw denim cardigan Cosby sweater, cred Etsy distillery beard fap semiotics. Artisan semiotics chillwave Helvetica, keffiyeh.</h4>
+                  <h4 class='testimonial'>Blue Bottle Helvetica ethnic fashion axe hoodie small batch. Raw denim single-origin coffee flannel Odd Future, drinking vinegar.</h4>
+                </div>
+              </div>
+              <div class='bottom-right'></div>
+              <div class='triangle'></div>
+            </div>
+          </div>
+          <div class='col-md-12 testimonial-names'>
+            <div class='testimonial-names-container'>
+              <div class='testimonial-name'>
+                <h5 class='testimonial'>Joseph Samilis, Ensprio, Inc.</h5>
+              </div>
+              <div class='testimonial-name'>
+                <h5 class='testimonial'>Matt Kearl, DSU</h5>
+              </div>
+              <div class='testimonial-name'>
+                <h5 class='testimonial'>Jason Schallenberger, NBA</h5>
+              </div>
+            </div>
+            <ul class='testimonial-slider-bullets'>
+              <li data-index='0' class='selected'></li>
+              <li data-index='1'></li>
+              <li data-index='2'></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class='clearfix'></section>
+
+      <footer>
+        <div class='row'>
+          <div class='col-md-12'>
+            <div class='cool-borders bubble big-bubble'>
+              <div class='middle'>
+                <div class='col-md-4'>
+                  <div class="logo-transparent"></div>
+                  <h1>Imperi<span>o</span></h1>
+                  <p>High Life iPhone meh, Etsy hella bespoke selfies bicycle rights keytar. Direct trade irony pork belly cray Vice, fixie farm-to-table pug Bushwick organic yr readymade squid cardigan banh mi. Vinyl chambray Thundercats, PBR food truck Pinterest whatever. Shabby chic viral organic tattooed squid. Next level Echo Park salvia, mustache.</p>
+                </div>
+                <div class='col-md-4'>
+                  <h2 class='right'>Quick Links</h2>
+                  <div class='clearfix'></div>
+                  <ul>
+                    <li>Find us on a map</li>
+                    <li>Contact us</li>
+                    <li>Folio of work</li>
+                    <li>Our blog</li>
+                    <li>Hipster ipsum</li>
+                  </ul>
+                  <ul>
+                    <li>Services</li>
+                    <li>Company profile</li>
+                    <li>Meet the team</li>
+                    <li>Request a quote</li>
+                    <li>Shabby chic</li>
+                  </ul>
+                </div>
+                <div class='col-md-4'>
+                  <h2>Flickr Stream</h2>
+                  <div class='row flickr'>
+                    <div class='col-md-4'>
+                      <div class='img-wrapper'>
+                        <img src='images/flickr/1.jpg' />
+                      </div>
+                    </div>
+                    <div class='col-md-4'>
+                      <div class='img-wrapper'>
+                        <img src='images/flickr/2.jpg' />
+                      </div>
+                    </div>
+                    <div class='col-md-4'>
+                      <div class='img-wrapper'>
+                        <img src='images/flickr/3.jpg' />
+                      </div>
+                    </div>
+                  </div>
+                  <div class='row flickr'>
+                    <div class='col-md-4'>
+                      <div class='img-wrapper'>
+                        <img src='images/flickr/4.jpg' />
+                      </div>
+                    </div>
+                    <div class='col-md-4'>
+                      <div class='img-wrapper'>
+                        <img src='images/flickr/5.jpg' />
+                      </div>
+                    </div>
+                    <div class='col-md-4'>
+                      <div class='img-wrapper'>
+                        <img src='images/flickr/6.jpg' />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='bottom-right'></div>
+              <div class='triangle'></div>
+            </div>
+          </div>
+        </div>
+        <div class='row' id='social'>
+          <div class='col-md-8'>
+            <i class='facebook'></i>
+            <i class='twitter'></i>
+            <i class='linkedin'></i>
+            <i class='vimeo'></i>
+            <i class='rss'></i>
+            <i class='picasa'></i>
+          </div>
+          <div class='col-md-4'>
+            <p class='right'><small>&copy; Imperio 2012 All Rights Reserved</small></p>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+  </body>
+</html>

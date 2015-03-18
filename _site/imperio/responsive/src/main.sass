@@ -1,0 +1,551 @@
+$brown: #848484
+$blue: #85a0b1
+$light-blue: rgba(155, 176, 189, .2)
+$dark-blue: #8da7b7
+$purple: rgba(130, 148, 178, .6)
+$purple_opaque: rgba(130, 148, 178, 1)
+$orange: rgba(158, 135, 95, .6)
+$text-brown: #626363
+
+@font-face
+  font-family: MuseoSlab
+  src: url('../fonts/Museo_Slab_500.otf') format('opentype')
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+  font-family: MuseoSlab
+
+h2, h3
+  background: url("../images/bg1.jpg") repeat
+  display: inline-block
+
+h3
+  font-size: 16px
+
+h4
+  font-size: 15px
+  font-weight: 700
+
+h5
+  font-size: 13px
+
+body
+  background: #000 url('../images/bg1.jpg') repeat
+  color: $text-brown
+
+@media (min-width: 1200px)
+  .container
+    max-width: 960px
+
+header, footer
+  margin-top: 20px
+  h1
+    font-family: MuseoSlab
+    text-transform: uppercase
+    color: $brown
+    text-shadow: 0px 1px 0px white, 0px -1px 0px #494949
+    font-size: 40px
+    line-height: 75px
+    span
+      color: $blue
+  #logo, .logo-transparent
+    width: 75px
+    height: 75px
+    background-image: url('../images/logo.png')
+    float: left
+    margin: 20px 10px 0 0
+  nav
+    line-height: 75px
+    margin-top: 20px
+    ul
+      position: absolute
+      right: 0
+      li
+        float: left
+        list-style-type: none
+        color: $brown
+        font-family: MuseoSlab
+        margin-left: 23px
+        &.selected
+          color: $blue
+          list-style-type: disc
+
+.cool-borders
+  background-repeat: repeat
+  position: relative
+  margin-bottom: 30px
+  .middle
+    top: 10px
+    left: 10px
+    .image-container
+      position: relative
+    .image-container, img
+      width: 100%
+      height: 100%
+  .bottom-right
+    z-index: -1
+    right: -10px
+    bottom: -10px
+  &.striped
+    .middle
+      background: #bcb8b2
+  &.striped, .bottom-right
+    background-image: url('../images/stripes.jpg')
+  >div
+    position: absolute
+
+  &.medium, &.medium .bottom-right
+    width: 264px
+    height: 178px
+    .middle
+      width: 254px
+      height: 168px
+
+  &.small, &.small .bottom-right
+    width: 190px
+    height: 130px
+    .middle
+      width: 180px
+      height: 120px
+
+  &.extra-small, &.extra-small .bottom-right
+    width: 106px
+    height: 59px
+    .middle
+      width: 100px
+      height: 54px
+      top: 6px
+      left: 6px
+    .bottom-right
+      bottom: -6px
+      right: -6px
+
+  &.bubble, &.bubble .bottom-right
+    width: 440px
+    height: 188px
+    background: url('../images/light-blue-bg.jpg')
+    .middle
+      overflow: hidden
+      width: 430px
+      height: 178px
+      background: url('../images/dark-blue-bg.jpg')
+    .triangle
+      width: 139px
+      height: 137px
+      background: url('../images/triangle.png') no-repeat
+      bottom: -75px
+      z-index: -1
+      right: -22px
+
+  &.big-bubble, &.big-bubble .bottom-right
+    width: 960px
+    height: 278px
+    .middle
+      top: 0
+      width: 940px
+      height: 268px
+      z-index: 1
+    .bottom-right
+      top: -10px
+      bottom: 0
+    .triangle
+      z-index: 0
+      right: 0
+      left: -22px
+      -moz-transform: scaleX(-1)
+      -webkit-transform: scaleX(-1)
+      -o-transform: scaleX(-1)
+      transform: scaleX(-1)
+      -ms-filter: fliph /*IE*/
+      filter: fliph /*IE*/
+
+#slider
+  margin-top: 40px
+  margin-bottom: 25px
+  .cool-borders
+    width: 950px
+    height: 370px
+    .middle
+      width: 940px
+      height: 360px
+      top: 10px
+      left: 10px
+      overflow: hidden
+      .image-container
+        div.first, div.second, #bullets
+          position: absolute
+          color: #fff
+          z-index: 100
+          padding-left: 15px
+        div.first
+          bottom: 118px
+          width: 242px
+          background: $purple
+          height: 34px
+          p
+            font-size: 22px
+            line-height: 34px
+        div.second
+          bottom: 65px
+          width: 350px
+          background: $orange
+          height: 45px
+          p
+            font-size: 30px
+            line-height: 45px
+        #bullets
+          bottom: 20px
+          z-index: 100
+          li
+            float: left
+            width: 30px
+            color: #757575
+            cursor: pointer
+            &.selected
+              color: #000
+            &:hover
+              color: #fff
+        #slides
+          width: 5640px
+          transition: all 1s
+          img
+            width: 940px
+            height: 360px
+            float: left
+    .bottom-right
+      width: 950px
+      height: 370px
+
+.lines
+  width: 100%
+  min-height: 13px
+  background: url('../images/lines.png') 0 6px repeat-x
+  margin: 7px 0px
+  &.middle
+    margin-top: 7px
+
+#call-to-action
+  .lines
+    text-align: center
+  h2, h3
+    text-align: center
+    margin-top: 7px
+    width: 800px
+    margin: 0 auto
+    padding: 0 10px
+    font-style: italic
+    font-size: 18px
+    a
+      color: $blue
+  h3
+    width: 638px
+
+section
+  margin-bottom: 50px
+
+#why, #blog-testimonials
+  h3
+    padding-right: 10px
+    margin-top: 0
+    margin-bottom: 20px
+
+#why
+  .reason
+    .lines
+      margin-bottom: 15px
+    h4
+      width: 70%
+      display: inline-block
+      text-align: center
+    .row
+      height: 101px
+      overflow: hidden
+      .left
+        padding-top: 32px
+      .buttn-circle
+        float: left
+        margin-right: 16px
+      .big-number
+        position: absolute
+        font-size: 100px
+        color: $light-blue
+        z-index: -1
+        left: 112px
+        top: -12px
+        font-style: italic
+
+#latest-work
+  h5
+    margin-top: -10px
+  .row.first
+    margin-bottom: 50px
+
+#blog-testimonials
+  .blog-entry
+    &.border-top
+      padding-top: 20px
+      padding-bottom: 10px
+      border-top: 1px solid #d5d8d8
+  h4
+    margin-top: 0px
+    margin-bottom: 5px
+    &.testimonial
+      padding: 20px
+      font-size: 20px
+      line-height: 33px
+      font-style: italic
+      color: #fff
+      float: left
+  h5
+    margin-top: 5px
+    margin-bottom: 0px
+  p
+    font-size: 11px
+  p
+    display: inline-block
+    font-style: italic
+  .icons
+    margin-top: 2px
+    span
+      font-size: 12px
+      float: left
+    i
+      float: left
+  i
+    width: 18px
+    height: 18px
+    display: inline-block
+    margin-left: 2px
+    &.comments-icon
+      background: url("../images/comment-icon.jpg") 0px 0px no-repeat
+      margin-right: 10px
+    &.heart-icon
+      cursor: pointer
+      background: url('../images/heart-icon.jpg') 1px 0px no-repeat
+  ul
+    margin-top: 10px
+    margin-left: 217px
+    li
+      float: left
+      width: 33px
+      cursor: pointer
+      &.selected
+        list-style: circle
+  .testimonial-container
+    width: 1626px
+    transition: all 1s
+    h4
+      width: 430px
+  .testimonial-names
+    overflow: hidden
+    .testimonial-names-container
+      margin-top: 10px
+      width: 1215px
+      transition: all 1s
+      .testimonial-name
+        float: left
+        width: 405px
+      h5
+        font-size: 15px
+        width: 312px
+        text-align: right
+
+#view-buttons
+  margin-top: -30px
+  margin-bottom: 50px
+
+.buttn
+  width: 100px
+  height: 42px
+  .outer
+    width: 100%
+    height: 100%
+    position: relative
+    background: #e0dddd
+    background: -moz-linear-gradient(top,  #e0dddd 0%, #edebeb 100%)
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e0dddd), color-stop(100%,#edebeb))
+    background: -webkit-linear-gradient(top,  #e0dddd 0%,#edebeb 100%)
+    background: -o-linear-gradient(top,  #e0dddd 0%,#edebeb 100%)
+    background: -ms-linear-gradient(top,  #e0dddd 0%,#edebeb 100%)
+    background: linear-gradient(to bottom,  #e0dddd 0%,#edebeb 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0dddd', endColorstr='#edebeb',GradientType=0 )
+  .inner
+    position: absolute
+    top: 50%
+    left: 50%
+    background: #b5cbda
+    background: -moz-linear-gradient(top,  #b5cbda 0%, #8ea6b7 100%)
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b5cbda), color-stop(100%,#8ea6b7))
+    background: -webkit-linear-gradient(top,  #b5cbda 0%,#8ea6b7 100%)
+    background: -o-linear-gradient(top,  #b5cbda 0%,#8ea6b7 100%)
+    background: -ms-linear-gradient(top,  #b5cbda 0%,#8ea6b7 100%)
+    background: linear-gradient(to bottom,  #b5cbda 0%,#8ea6b7 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5cbda', endColorstr='#8ea6b7',GradientType=0 )
+    &:hover
+      opacity: .9
+    span
+      position: absolute
+      top: 50%
+      left: 50%
+      margin-top: -15px
+      margin-left: -5px
+      color: #fff
+      font-size: 21px
+  &.buttn-circle
+    width: 42px
+    height: 42px
+    .outer
+      border-radius: 20px
+    .inner
+      width: 32px
+      height: 32px
+      border-radius: 20px
+      margin-top: -16px
+      margin-left: -16px
+  &.buttn-square
+    width: 125px
+    height: 36px
+    .inner
+      width: 116px
+      height: 26px
+      margin-left: -58px
+      margin-top: -13px
+      span
+        font-size: 12px
+        width: 87px
+        margin-top: -8px
+        margin-left: -52px
+        text-shadow: 0 1px 0 #999
+      .icon
+        width: 15px
+        height: 15px
+        border-radius: 10px
+        background: #8da7b7
+        margin-top: 6px
+        right: 5px
+        position: absolute
+        .arrow-right
+          width: 0
+          height: 0
+          border-top: 3px solid transparent
+          border-bottom: 3px solid transparent
+          border-left: 4px solid white
+          margin-top: .3em
+          margin-left: 6px
+
+footer
+  .logo-transparent
+    background: url('../images/logo_transparent.png') no-repeat
+    background-size: 50px 50px
+    height: 50px
+    width: 50px
+  h1
+    line-height: 50px
+    font-size: 32px
+  h2
+    font-size: 15px
+    margin: 52px 0 20px 0px
+    background: none
+    &.right
+      margin-left: 26px
+  p
+    line-height: 22px
+    font-size: 12px
+  ul
+    width: 50%
+    float: left
+    li
+      font-size: 12px
+      line-height: 34px
+      color: $text-brown
+  .img-wrapper
+    padding: 5px
+    background: rgba(11, 45, 89, .2)
+  .flickr
+    margin-bottom: 15px
+  #social
+    height: 50px
+    margin-top: 0px
+    margin-left: 115px
+    i
+      width: 30px
+      height: 30px
+      display: inline-block
+      border-radius: 20px
+      margin-right: 10px
+      &.facebook
+        background: url('../images/icons/facebook.png')
+        background-size: 30px 30px
+      &.twitter
+        background: url('../images/icons/twitter.png')
+        background-size: 30px 30px
+      &.picasa
+        background: url('../images/icons/picasa.png')
+        background-size: 30px 30px
+      &.rss
+        background: url('../images/icons/rss.png')
+        background-size: 30px 30px
+      &.vimeo
+        background: url('../images/icons/vimeo.png')
+        background-size: 30px 30px
+      &.linkedin
+        background: url('../images/icons/linkedin.png')
+        background-size: 30px 30px
+  p.right
+    text-align: right
+
+.modal
+  img
+    margin-bottom: 20px
+
+/* hover info overrides */
+.block_holder
+  margin: 0
+  padding: 0
+
+.hover_info
+  p
+    font-size: 1.46em
+    text-align: left
+    top: 15px
+  a
+    bottom: 15px
+    background: $purple
+    &:hover
+      background: $purple_opaque
+  &:hover
+    p
+      transition-delay: 100ms
+      -webkit-transition-delay: 100ms
+      -moz-transition-delay: 100ms
+
+.tricky-borders
+  background-image: url('../images/stripes.jpg')
+  background-repeat: repeat
+  padding: 10px
+  .bottom-left, .top-right
+    width: 10px
+    height: 10px
+    background: url("../images/bg1.jpg") repeat
+    position: absolute
+  .bottom-left
+    bottom: 0
+    left: 15px
+  .top-right
+    top: 0
+    right: 15px
+  &.slider
+    height: 370px
+    .tb-content
+      height: 350px
+      background: white
+
+.slider
+  .image-container
+    width: 100%
+    height: 100%
+    overflow: hidden
+    .slides
+      width: 100%
+    img
+      width: 100%
+      float: left

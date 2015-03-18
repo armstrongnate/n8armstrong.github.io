@@ -1,0 +1,24 @@
+.flashcard {
+  height: 216px;
+  -webkit-box-shadow: 0px 3px 5px rgba(50, 50, 50, 0.38);
+  -moz-box-shadow: 0px 3px 5px rgba(50, 50, 50, 0.38);
+  box-shadow: 0px 3px 5px rgba(50, 50, 50, 0.38);
+  overflow: hidden; }
+
+.icon-bar {
+  background: black; }
+
+li.spinner {
+  height: 64px;
+  padding-top: 30px; }
+
+#drop {
+  border: 2px dashed #bbbbbb;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 25px;
+  text-align: center;
+  font: 20pt bold, "Vollkorn";
+  color: #bbbbbb;
+  margin-bottom: 10px; }

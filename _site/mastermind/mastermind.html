@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Mastermind</title>
+    </head>
+    <body>
+        <center>
+            <h1>Mastermind</h1>
+            <p>
+                The computer has picked four letters, each of which is from the
+                list: a, b, c, d, e, f. Note that duplicate letters are allowed.
+                <br>
+                You must guess the four letters in the correct order.
+                <br>
+                Each time you guess, the computer will tell you how many
+                letters you got right, and how many letters you got right in
+                the correct position.
+            </p>
+            <h2>Results from your most recent guess:</h2>
+            <p>Correct letters:</p>
+            <p id="correctletters">0</p>
+            <p>Correct letters in correct positions:</p>
+            <p id="fullycorrect">0</p>
+            <p>Number of guesses so far:</p>
+            <p id="guessessofar">0</p>
+            <form id="gameform">
+            <h2>Enter your guess here:</h2>
+            <p>
+                <input type="text" size="1" id="guess1" />
+                <input type="text" size="1" id="guess2" />
+                <input type="text" size="1" id="guess3" />
+                <input type="text" size="1" id="guess4" />
+            </p>
+            <p>
+                <input type="submit" value="Check your guess" />
+            </p>
+            </form>
+        </center>
+        <script type="text/javascript" src="mastermind.js"></script>
+    </body>
+</html>

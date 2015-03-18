@@ -1,0 +1,93 @@
+<!doctype html>
+<html ng-app='minutedockr'>
+<head>
+  <script src='js/angular.js'></script>
+  <script src='js/minutedockr.js'></script>
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+  <script src='js/bootstrap.js'></script>
+
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+
+  <link rel='stylesheet' type='text/css' href='css/bootstrap.css' />
+  <link rel='stylesheet' type='text/css' href='css/glyphicons.css' />
+  <link rel='stylesheet' type='text/css' href='css/general.css' />
+</head>
+<body>
+  <section class='intro'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-12'>
+          <div class='next-banner'>
+            <h1>MinuteDockr</h1>
+            <h1><small>Dock your minutes anywhere.</small></h1>
+            <img class='hidden-xs' src='images/current_entry1.png' />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class='features' ng-controller='featuresCtrl'>
+    <div class='container'>
+      <div class='row kicker'>
+        <div class='col-md-6'>
+          <img class='md-icon' src='images/icon.png' width='130px' />
+          <h2>Freedom to Clock</h2>
+          <h3 class='text-muted'>Integrated to Dock</h3>
+          <img class='widget-preview' src='images/widget_preview.png' />
+        </div>
+        <div class='col-md-6 description'>
+          <p>
+            With MinuteDockr, you have the awesome power of the MinuteDock time tracking system in the palm of your hand.
+          </p>
+          <p>
+            Log in and experience the features you use everyday on the web but <b>now on Android</b>. Start, stop, pause, edit, and log
+            an entry.
+          </p>
+          <p>
+            View all the entries for the current day and see how many hours you've clocked this week.
+          </p>
+          <p>
+            Need a widget? It's got that too.
+          </p>
+          <a href='https://play.google.com/store/apps/details?id=com.natearmstrong.minutedockr' class='play-store'>
+            <div>
+              <img class='android-robot pull-left' src='images/android-robot-orange.png' />
+              <span>Available on the Play Store</span>
+            </div>
+          </a>
+          <p class='free'>It's free!</p>
+        </div>
+      </div>
+      <div class='row screenshots'>
+        <div class='col-md-6'>
+          <img class='screenshot1 screenshot' src='images/current_entry1.png' />
+        </div>
+        <div class='col-md-6'>
+          <img class='screenshot2 screenshot' src='images/home_widget_device.png' />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class='contact'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-sm-4'>
+          <h4>
+            <a href='https://play.google.com/store/apps/details?id=com.natearmstrong.minutedockr'>Get it on the Play Store.</a>
+          </h3>
+        </div>
+        <div class='col-sm-4'>
+          <h4 mailto='natearmstrong2@gmail.com'>natearmstrong2@gmail.com</h4>
+        </div>
+        <div class='col-sm-4'>
+          <a href='https://twitter.com/N8Armstrong'>
+            <div class='twitter'></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

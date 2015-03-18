@@ -1,0 +1,36 @@
+<div class='panel panel-default'>
+  <div class='panel-body'>
+    <div class='row'>
+      <div class='col-md-11 col-sm-10'>
+        <div class='form-group'>
+          <input type='text' class='form-control' ng-model='currentDeck.deck.name'>
+        </div>
+      </div>
+    </div>
+    <div class='row' ng-repeat='card in currentDeck.deck.cards'>
+      <div class='col-sm-5 col-xs-10 col-md-5'>
+        <div class='form-group'>
+          <input type='text' class='form-control' ng-model='card.front'>
+        </div>
+      </div>
+      <div class='col-sm-5 col-xs-10 col-md-6'>
+        <div class='form-group'>
+          <textarea class='form-control' ng-model='card.back'></textarea>
+        </div>
+      </div>
+      <div class='col-sm-2 col-xs-2 col-md-1'>
+        <a ng-click='deckCtrl.destroyCardAtIndex($index)'>
+          <span class='glyphicon glyphicon-circle_minus text-danger' ng-show='card.front || card.back'></span>
+        </a>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-11'>
+        <button class='btn btn-primary' ng-click='deckCtrl.saveDeck()'>Save</button>
+        <a class='btn btn-link' ng-show='currentDeck.deck.id' href='#/decks'>Cancel</a>
+        <a class='btn btn-link' ng-href="#/decks/{{currentDeck.deck.id}}/study" ng-show='currentDeck.deck.id'>Study</a>
+        <button class='btn btn-link text-danger pull-right' ng-show='currentDeck.deck.id' ng-click='deckCtrl.destroy()'>Delete Deck</button>
+      </div>
+    </div>
+  </div>
+</div>
