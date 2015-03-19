@@ -183,7 +183,7 @@ outer shadow properties set.</p>
 <p>I made the inner view just a pixel bigger than the container in order to hide the thin border.</p>
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">class</span> <span class="nl">FancyInsetView</span><span class="p">:</span> <span class="bp">UIView</span> <span class="p">{</span>
 
-  <span class="k">var</span> <span class="nl">innerShadow</span><span class="p">:</span> <span class="n">YIInnerShadowView</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">lazy</span> <span class="k">var</span> <span class="nl">innerShadow</span><span class="p">:</span> <span class="n">YIInnerShadowView</span> <span class="o">=</span> <span class="p">{</span>
     <span class="k">let</span> <span class="n">view</span> <span class="o">=</span> <span class="n">YIInnerShadowView</span><span class="p">(</span><span class="nl">frame</span><span class="p">:</span> <span class="n">CGRectZero</span><span class="p">)</span>
     <span class="n">view</span><span class="p">.</span><span class="n">shadowRadius</span> <span class="o">=</span> <span class="mf">2.0</span>
     <span class="n">view</span><span class="p">.</span><span class="n">shadowColor</span> <span class="o">=</span> <span class="bp">UIColor</span><span class="p">(</span><span class="nl">white</span><span class="p">:</span> <span class="mi">4</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="nl">alpha</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
