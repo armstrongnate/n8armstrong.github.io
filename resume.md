@@ -1,7 +1,8 @@
 ---
 layout: page
-title: Resume
 ---
+
+# Resume
 
 ## Contact
 
@@ -18,8 +19,9 @@ projects.
 
 ### Software Engineer at [Custom Bit](http://www.custombit.com/) - _2.5 yrs_
 
-Custom Bit is a mobile and web development consulting firm. They manage more
-than a dozen Ruby on Rails applications and have shipped a handful of mobile apps.
+Custom Bit does consulting for custom web and mobile applications. I have been
+the lead developer on multiple iOS apps and work on rails projects varying from
+twitter clones to CRMs and auto shop software.
 
 ## Skills
 
