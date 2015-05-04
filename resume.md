@@ -27,6 +27,8 @@ twitter clones to CRMs and auto shop software.
 
 * Mobile Development: iOS, Android
 * Web Development: Ruby on Rails, Angular, React
+* iOS Frameworks: Core Data, Core Location, AFNetworking, Alamofire, RestKit, CloudKit
+* Programming Languages: Swift, Objective-C, Ruby, C++, Javascript, Java, Python
 
 ## Education
 
