@@ -27,7 +27,6 @@ twitter clones to CRMs and auto shop software.
 
 * Mobile Development: iOS, Android
 * Web Development: Ruby on Rails, Angular, React
-* Other: git, vim, docker
 
 ## Education
 
