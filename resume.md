@@ -11,7 +11,7 @@ while completing my computer science degree at DSU. In that time I have shipped
 several iOS and Android applications and have worked on more than a dozen rails
 projects.
 
-## Employment
+## Employment Experience
 
 ### Software Engineer at [Custom Bit](http://www.custombit.com/) - _2.5 yrs_
 
