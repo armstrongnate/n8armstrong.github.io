@@ -3,3 +3,16 @@ pre {
   white-space: pre;
   word-wrap: normal;
 }
+
+.gallery img {
+  float: left;
+  margin-right: 10px;
+}
+
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
