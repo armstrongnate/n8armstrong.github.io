@@ -11,7 +11,7 @@ a nice inset effect.
 Here is what the design (mocked up in [Sketch 3](http://bohemiancoding.com/sketch/))
 called for:
 
-<img src='/assets/inset-view/mockup.png' width='350px' />
+<img src='{{ site.baseurl }}public/images/inset-view/mockup.png' width='350px' />
 
 In the example above the inset view is being used to contain a text field but
 as you will see later on the inset will work and look okay with many inner views.
@@ -84,7 +84,7 @@ myView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
 
 With that most basic approach we end up with:
 
-<img src='/assets/inset-view/fail1.png' width='300px' />
+<img src='{{ site.baseurl }}public/images/inset-view/fail1.png' width='300px' />
 
 Which is close but not quite what we want. If you look closely, the
 `YIInnerShadowView` is creating a dark, thin border around the view and the
@@ -167,6 +167,6 @@ class FancyInsetView: UIView {
 
 Here's how it turned out:
 
-<img src='/assets/inset-view/success1.png' width='300px' />
+<img src='{{ site.baseurl }}public/images/inset-view/success1.png' width='300px' />
 
 That'll work! Code and demo are [on GitHub](https://github.com/n8armstrong/fancy-inset-view).
