@@ -2,7 +2,7 @@
 layout: project
 title: Caret Time Tracking
 subtitle: School Project
-icon: https://raw.githubusercontent.com/n8armstrong/caret-ios/master/Caret/Images.xcassets/AppIcon.appiconset/76x76%402x.png?token=ABIeq7ZmMdhqbojMi_5HGtgYqmPX2WFiks5VuHDQwA%3D%3D
+icon: caret/icon.png
 ---
 
 <h2>Video Demo</h2>
